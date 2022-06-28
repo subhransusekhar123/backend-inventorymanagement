@@ -21,16 +21,12 @@ const signUp=(req,res)=>{
   })
 }
 
-
 const login=(req,res)=>{
     console.log('login');
-    // console.log(req);
     User.findOne({email:req.body.email}).then(result=>{
     console.log('req.body.email');
     console.log(req.body.email);
         passwordCompare(result.password,req.body.password).then(data=>{
-    console.log('data');
-    console.log(data);
 
             if(data){
                 jwtGen({username:result.email}).then(token=>{
