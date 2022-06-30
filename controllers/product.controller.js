@@ -15,9 +15,10 @@ const productGetController = async (req,res)=>{
 }
 
 const productPostController = async(req,res) => {
-  let image_path = req.files.image.path
-  cloudinary.uploader.upload(image_path,async (error, result)=> {
-        if(error) {
+
+    let image_path = req.files.image.path;
+    cloudinary.uploader.upload(image_path, async(error, result)=> {
+        if(error) {     
             res.send({"message":"image not supported message"})
         }else{
             let product = productModel({
@@ -27,10 +28,9 @@ const productPostController = async(req,res) => {
                 quantity:req.body.quantity
             })
             let saveProduct = await product.save();
-            res.json({"saveProduct":saveProduct});
+            res.send(saveProduct);
         }
     });
-   
 }
 
 const productUpdateController = async(req,res) => {
@@ -38,6 +38,11 @@ const productUpdateController = async(req,res) => {
     res.send(getProduct)
 }
 
+const productDeleteController = async(req,res) => {
+    let delete_obj = await productModel.deleteOne({_id : req.params.id})
+    res.send(delete_obj)
+}
+
 module.exports = {
-    productGetController,productPostController,productUpdateController
+    productGetController,productPostController,productUpdateController,productDeleteController
 }
