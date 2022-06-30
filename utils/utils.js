@@ -15,7 +15,6 @@ const jwtGen=async(userdata)=>{
         const token = await jwt.sign(userdata, key); // calling the method to generate token
         return token;
     } catch (error) {
-        console.log(error);
         return false;
     }
 }
