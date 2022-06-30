@@ -15,14 +15,14 @@ const productGetController = async (req,res)=>{
 }
 
 const productPostController = async(req,res) => {
-    let image_path = req.files.image.path
+  let image_path = req.files.image.path
   cloudinary.uploader.upload(image_path,async (error, result)=> {
         if(error) {
             res.send({"message":"image not supported message"})
         }else{
             let product = productModel({
                 name:req.body.name,
-                image:result,
+                image:result.url,
                 price:req.body.price,
                 quantity:req.body.quantity
             })
