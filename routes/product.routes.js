@@ -6,9 +6,9 @@ const path  = require('path')
 const multipartMiddleware = multipart({uploadDir:path.join(__dirname,"image")});
 
 
-productRouter.get("/",productGetController)
-productRouter.post("/upload",multipartMiddleware,productPostController)
-productRouter.put("/:id",productUpdateController);
-productRouter.delete("/:id",productDeleteController)
+productRouter.get("/",productGetController)//main product page
+productRouter.post("/upload",multipartMiddleware,productPostController)//inventory page
+productRouter.put("/:id",productUpdateController);//inventory 
+productRouter.delete("/:id",productDeleteController)//inventory
 
 module.exports = productRouter;

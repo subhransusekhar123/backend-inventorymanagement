@@ -11,9 +11,7 @@ const signUp=(req,res)=>{
   })
 
   user.save().then(data=>{
-      res.json({
-          message:"Successfully registered"
-      })
+      res.send(data)
   }).catch(err=>{
     res.json({
         message:err.message
