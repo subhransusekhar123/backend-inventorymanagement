@@ -21,6 +21,7 @@ const productPostController = async(req,res) => {
         if(error) {     
             res.send({"message":"image not supported message"})
         }else{
+            
             let product = productModel({
                 name:req.body.name,
                 image:result.url,
@@ -38,11 +39,16 @@ const productUpdateController = async(req,res) => {
     res.send(getProduct)
 }
 
+const productFindController = async(req,res) => {
+    let getProduct =await productModel.findOne({_id:req.params.id})
+    res.send(getProduct)
+}
+
 const productDeleteController = async(req,res) => {
     let delete_obj = await productModel.deleteOne({_id : req.params.id})
     res.send(delete_obj)
 }
 
 module.exports = {
-    productGetController,productPostController,productUpdateController,productDeleteController
+    productGetController,productPostController,productUpdateController,productDeleteController,productFindController
 }
