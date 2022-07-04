@@ -20,10 +20,10 @@ const Userschema=new mongoose.Schema({
     company:{
         type:String
     },
-    isAdmin:{
-        type:Boolean,
-        default:false
-    }
+   user:{
+    type:String,
+    default:"user"
+   }
 
 },{
     timestamps: true

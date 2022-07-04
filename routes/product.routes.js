@@ -5,7 +5,6 @@ const multipart = require('connect-multiparty');
 const path  = require('path')
 const multipartMiddleware = multipart({uploadDir:path.join(__dirname,"image")});
 
-
 productRouter.get("/",productGetController)//main product page
 productRouter.post("/upload",multipartMiddleware,productPostController)//inventory page
 productRouter.put("/:id",productUpdateController);//inventory 

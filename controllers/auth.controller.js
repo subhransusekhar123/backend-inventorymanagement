@@ -21,7 +21,7 @@ const signUp=(req,res)=>{
 
 const login=(req,res)=>{
     console.log('login');
-    User.findOne({email:req.body.email}).then(result=>{
+    User.findOne({ email:req.body.email }).then(result=>{
     console.log('req.body.email');
     console.log(req.body.email);
         passwordCompare(result.password,req.body.password).then(data=>{
@@ -30,7 +30,8 @@ const login=(req,res)=>{
                 jwtGen({username:result.email}).then(token=>{
                     res.json({
                         message:"Login success",
-                        token:token
+                        token:token,
+                        user:result.user
                     })
                 })
             }
@@ -50,5 +51,4 @@ const login=(req,res)=>{
 module.exports={
     signUp,
     login
-
 }
