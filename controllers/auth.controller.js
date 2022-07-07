@@ -31,7 +31,8 @@ const login=(req,res)=>{
                     res.json({
                         message:"Login success",
                         token:token,
-                        user:result.user
+                        user:result.user,
+                        id:result._id
                     })
                 })
             }
