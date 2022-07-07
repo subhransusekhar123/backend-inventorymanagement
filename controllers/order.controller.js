@@ -10,6 +10,11 @@ const getUserOrderData = async (req,res) => {
     res.send(user_orders)
 }
 
+const getSpecificOrderData = async (req,res) => {
+    let user_data = await orderModel.findOne({ $and:[{_id : req.params.id},{user_id:req.params.user_id}] })
+    res.send(user_data)
+}
+
 const postOrderData =async (req,res) => {
     console.log(req.body)
     let order = orderModel({
@@ -34,4 +39,4 @@ const deleteOrderData =async (req,res) => {
     res.send('Data deleted')
 }
 
-module.exports = { getOrderData,getUserOrderData,postOrderData,updateOrderData,deleteOrderData }
+module.exports = { getOrderData,getUserOrderData,postOrderData,updateOrderData,deleteOrderData,getSpecificOrderData }
