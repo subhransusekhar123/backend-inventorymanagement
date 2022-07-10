@@ -32,7 +32,8 @@ const login=(req,res)=>{
                         message:"Login success",
                         token:token,
                         user:result.user,
-                        id:result._id
+                        id:result._id,
+                        email:req.body.email
                     })
                 })
             }
