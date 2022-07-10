@@ -33,7 +33,8 @@ const login=(req,res)=>{
                         token:token,
                         user:result.user,
                         res:result,
-                        id:result._id
+                        id:result._id,
+                        email:req.body.email
                     })
                 })
             }

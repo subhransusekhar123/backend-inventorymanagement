@@ -6,8 +6,8 @@ const {encryptPassword} =require("../middlewares/auth.middleware");
 
 authrouter.post("/signup",encryptPassword,signUp);
 authrouter.post("/login",login);
-authrouter.get("/sendEmail",(req,res)=>{
-    sendEmail("suvarna.pawar812@gmail.com","this is a test email to test something")
+authrouter.get("/sendEmail/:email/:message",(req,res)=>{
+    sendEmail(req.params.email,req.params.message)
     res.send("worked");
 });
 authrouter.put("/update_profile/:id",profileUpdate); 

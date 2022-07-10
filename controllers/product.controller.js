@@ -44,11 +44,16 @@ const productFindController = async(req,res) => {
     res.send(getProduct)
 }
 
+const productFindWithNameController = async(req,res) => {
+    let getProduct =await productModel.findOne({name:req.params.name})
+    res.send(getProduct)
+}
+
 const productDeleteController = async(req,res) => {
     let delete_obj = await productModel.deleteOne({_id : req.params.id})
     res.send(delete_obj)
 }
 
 module.exports = {
-    productGetController,productPostController,productUpdateController,productDeleteController,productFindController
+    productGetController,productPostController,productUpdateController,productDeleteController,productFindController,productFindWithNameController
 }
