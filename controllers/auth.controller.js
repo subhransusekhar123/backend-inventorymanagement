@@ -32,6 +32,7 @@ const login=(req,res)=>{
                         message:"Login success",
                         token:token,
                         user:result.user,
+                        res:result,
                         id:result._id,
                         email:req.body.email
                     })
@@ -39,7 +40,7 @@ const login=(req,res)=>{
             }
             else{
                 res.json({
-                    message:"Login Failed,Passwords Does Not Match"
+                    message:"Login Failed,Passwords Does Not Match",
                 })
             }
         })
@@ -50,7 +51,26 @@ const login=(req,res)=>{
     })
   }
 
+const profileUpdate = async(req,res) => {
+
+    console.log('req')
+    console.log(req.body)
+
+    let getUser =await User.updateOne({_id:req.params.id},req.body);
+    User.findOne({ email:req.body.email }).then(result=>{
+        res.json({
+            message:"Profile Updated !!",
+            data:result
+        })
+    }).catch(err=>{
+        res.json({
+            message:"No user Found !!"
+        })
+    })
+}
+
 module.exports={
     signUp,
-    login
+    login,
+    profileUpdate
 }
