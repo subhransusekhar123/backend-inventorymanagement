@@ -19,6 +19,7 @@ const postOrderData =async (req,res) => {
     console.log(req.body)
     let order = orderModel({
         user_id : req.body.user_id,
+        product_id:req.body.product_id,
         name:req.body.name,
         image:req.body.image,
         price:req.body.price,

@@ -39,6 +39,11 @@ const productUpdateController = async(req,res) => {
     res.send(getProduct)
 }
 
+const productUpdateControllerName = async(req,res) => {
+    let getProduct =await productModel.updateOne({name:req.params.name},req.body)
+    res.send(getProduct)
+}
+
 const productFindController = async(req,res) => {
     let getProduct =await productModel.findOne({_id:req.params.id})
     res.send(getProduct)
@@ -55,5 +60,5 @@ const productDeleteController = async(req,res) => {
 }
 
 module.exports = {
-    productGetController,productPostController,productUpdateController,productDeleteController,productFindController,productFindWithNameController
+    productGetController,productPostController,productUpdateController,productDeleteController,productFindController,productFindWithNameController,productUpdateControllerName
 }
