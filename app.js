@@ -3,7 +3,7 @@ const app=express();
 const cors=require("cors");
 
 const authrouter=require("./routes/auth.routes");
-const productRouter = require('./routes/product.routes')
+const productRouter = require('./routes/product.routes');
 const { allowAccess } = require("./middlewares/security.middleware");
 const orderRouter = require('./routes/order.routes');
 

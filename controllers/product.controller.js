@@ -40,8 +40,8 @@ const productUpdateController = async(req,res) => {
 }
 
 const productUpdateControllerName = async(req,res) => {
-    let getProduct =await productModel.updateOne({name:req.params.name},req.body)
-    res.send(getProduct)
+    let getProduct =await productModel.updateOne({name:req.params.name},req.body);
+    res.send(getProduct);
 }
 
 const productFindController = async(req,res) => {

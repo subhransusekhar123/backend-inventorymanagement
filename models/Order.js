@@ -24,9 +24,7 @@ const orderSchema  = mongoose.Schema({
         type:Number,
         required:true
     }
-    
 })
 
 const orderModel = mongoose.model("userOrder",orderSchema);
-
 module.exports = orderModel;

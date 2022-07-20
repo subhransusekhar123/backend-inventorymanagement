@@ -11,8 +11,8 @@ const getUserOrderData = async (req,res) => {
 }
 
 const getSpecificOrderData = async (req,res) => {
-    let user_data = await orderModel.findOne({ $and:[{_id : req.params.id},{user_id:req.params.user_id}] })
-    res.send(user_data)
+    let user_data = await orderModel.findOne({ $and:[{_id : req.params.id},{user_id:req.params.user_id}] });
+    res.send(user_data);
 }
 
 const postOrderData =async (req,res) => {

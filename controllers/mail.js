@@ -31,4 +31,4 @@ const sendEmail=(email,message)=>{
 
 }
 
-module.exports={sendEmail};
+module.exports={ sendEmail };
